@@ -43,9 +43,9 @@ for (int i = 0; i < countCheck; i++)
     Console.Write($" {val1}\t| {val2}\t|");
     Console.Write($" {val1 == val2}\t|");
 
-    Console.WriteLine();
-
-    sw.Stop();
-
-    Console.WriteLine($"Время работы {sw.ElapsedMilliseconds} мс");
+    Console.WriteLine();        
 }
+
+sw.Stop();
+
+Console.WriteLine($"Время работы {sw.ElapsedMilliseconds} мс");
