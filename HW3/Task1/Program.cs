@@ -12,17 +12,30 @@
 234322 -> Число не пятизначное
 False*/
 
-Answer.Main(new string[] { "123456" });
+using System.Xml.Schema;
+
+Answer.Main(new string[] { "14212" });
+Answer.Main(new string[] { "12821" });
+Answer.Main(new string[] { "234322" });
 
 public class Answer
 {
     static bool IsPalindrome(int number)
     {
         // Введите свое решение ниже
-        if (number.ToString().Length > 5)
+        string snum = number.ToString();
+        int len = snum.Length;
+
+        if (len != 5)
         {
             Console.WriteLine("Число не пятизначное");
             return false;
+        }
+
+        for (int i = 0; i < (len / 2); i++)
+        {
+            if (snum[i] != snum[len - 1 - i])
+                return false;
         }
 
         return true;
