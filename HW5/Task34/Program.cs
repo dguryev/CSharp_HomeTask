@@ -3,13 +3,13 @@
 [345, 897, 568, 234] -> 2
 */
 
-int[] CreateArray(int n)
+int[] CreateArray(int n, int min, int max)
 {
     int[] array = new int[n];
     Random r = new Random();
 
     for (int i = 0; i < array.Length; i++)
-        array[i] = r.Next(100, 1000);
+        array[i] = r.Next(min, max);
 
     return array;
 }
@@ -35,9 +35,9 @@ int CountEven(int[] array)
     return count;
 }
 
-int ArraySize = 4;
+int ArraySize = 4, min = 100, max = 1000;
 
-int [] array = CreateArray(ArraySize);
+int [] array = CreateArray(ArraySize, min, max);
 PrintArray(array);
 
 int countEven = CountEven(array);
