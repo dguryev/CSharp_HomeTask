@@ -26,7 +26,7 @@ k - число, на которое увеличивается каждый но
 
 using System;
 
-Answer.Main(new string[] { "3", "4", "5", "2", "2" });
+Answer.Main(new string[] { "4", "5", "3", "2", "2" });
 
 public class Answer
 {
@@ -45,11 +45,11 @@ public class Answer
     public static int[,] CreateIncreasingMatrix(int n, int m, int k)
     {
         // Введите свое решение ниже
-        int[,] a = new int[m, n];
+        int[,] a = new int[n, m];
 
         for (int i = 0; i < a.GetLength(0); i++)
             for (int j = 0; j < a.GetLength(1); j++)
-                a[i, j] = (i * a.GetLength(1) + j) * k;
+                a[i, j] = 1 + (i * a.GetLength(1) + j) * k;
 
         return a;
     }
@@ -57,10 +57,10 @@ public class Answer
     public static int[] FindNumberByPosition(int[,] matrix, int rowPosition, int columnPosition)
     {
         // Введите свое решение ниже
-        if (rowPosition >= matrix.GetLength(0) || columnPosition >= matrix.GetLength(1))
+        if (rowPosition > matrix.GetLength(0) || columnPosition > matrix.GetLength(1))
             return new int[1] { 0 };
 
-        return new int[2] { matrix[rowPosition, columnPosition], 0 };
+        return new int[2] { matrix[rowPosition - 1, columnPosition - 1], 0 };
     }
 
     public static void PrintCheckIfError(int[] results, int X, int Y)
